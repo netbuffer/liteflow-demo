@@ -1,0 +1,21 @@
+server:
+  port: 11011
+
+logging:
+  config: classpath:logback-springboot.xml
+
+liteflow:
+  enable: true
+  print-banner: false
+  parse-on-start: true
+  rule-source: rules/liteflow.el.yml
+  print-execution-log: true
+  monitor:
+    enable-log: true
+    queue-limit: 200
+    delay: 60000
+    period: 60000
+
+print-server-address:
+  prefix: --->
+  suffix: <---
