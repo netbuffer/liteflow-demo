@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.yomahub.liteflow.annotation.LiteflowComponent;
 import com.yomahub.liteflow.core.NodeComponent;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 @Slf4j
 @LiteflowComponent(name = "step1")
