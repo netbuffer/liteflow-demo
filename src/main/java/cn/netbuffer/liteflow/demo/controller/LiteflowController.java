@@ -28,7 +28,9 @@ public class LiteflowController {
         param.put("chain", chainId);
         param.put("time", DateTime.now().toString("yyyy-MM-dd HH:mm:ss"));
         LiteflowResponse liteflowResponse = flowExecutor.execute2Resp(chainId, param);
-        log.debug("exec chain[{}] return {}", chainId, liteflowResponse.getCode());
+        log.debug("exec chain[{}] return code={},getExecuteStepStrWithoutTime={},getMessage={},getRequestId={},slot={}", chainId,
+                liteflowResponse.getCode(), liteflowResponse.getExecuteStepStrWithoutTime(),
+                liteflowResponse.getMessage(), liteflowResponse.getRequestId(), liteflowResponse.getSlot());
         return liteflowResponse.isSuccess();
     }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow>
+    <nodes>
+        <node id="step1" class="cn.netbuffer.liteflow.demo.component.flow.Step1Component"/>
+        <node id="step4" class="cn.netbuffer.liteflow.demo.component.flow.Step4Component"/>
+    </nodes>
+    <chain name="chain-xml">
+        THEN(
+        //exec step1
+        step1,
+        /**
+        * exec step4
+        **/
+        step4
+        )
+    </chain>
+</flow>
