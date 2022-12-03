@@ -4,6 +4,7 @@ server:
 logging:
   config: classpath:logback-springboot.xml
 
+# https://liteflow.yomahub.com/pages/4594ec/
 liteflow:
   support-multiple-type: true
   enable: true
