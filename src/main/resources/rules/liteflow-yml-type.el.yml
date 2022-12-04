@@ -2,13 +2,13 @@ flow:
   nodes:
     node:
       - id: step1
-        class: cn.netbuffer.liteflow.demo.component.flow.Step1Component
+        class: cn.netbuffer.liteflow.demo.component.flow.normal.Step1Component
       - id: step2
-        class: cn.netbuffer.liteflow.demo.component.flow.Step2Component
+        class: cn.netbuffer.liteflow.demo.component.flow.normal.Step2Component
       - id: step3
-        class: cn.netbuffer.liteflow.demo.component.flow.Step3Component
+        class: cn.netbuffer.liteflow.demo.component.flow.normal.Step3Component
       - id: step4
-        class: cn.netbuffer.liteflow.demo.component.flow.Step4Component
+        class: cn.netbuffer.liteflow.demo.component.flow.normal.Step4Component
   chain:
     - name: chain1
       value: "THEN(step1,WHEN(step2,step3),step4)"

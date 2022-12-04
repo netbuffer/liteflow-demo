@@ -1,4 +1,4 @@
-package cn.netbuffer.liteflow.demo.component.flow;
+package cn.netbuffer.liteflow.demo.component.flow.normal;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yomahub.liteflow.annotation.LiteflowComponent;

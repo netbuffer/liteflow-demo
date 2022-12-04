@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow>
-    <nodes>
-        <node id="step1" class="cn.netbuffer.liteflow.demo.component.flow.Step1Component"/>
-        <node id="step4" class="cn.netbuffer.liteflow.demo.component.flow.Step4Component"/>
-    </nodes>
     <chain name="chain-xml">
         THEN(
         //exec step1
@@ -13,5 +9,9 @@
         **/
         step4
         )
+    </chain>
+    <!-- https://liteflow.yomahub.com/pages/c0f5d7/ -->
+    <chain name="chain-switch">
+        SWITCH(paySwitchStep).to(paySuccessStep, payFailStep);
     </chain>
 </flow>

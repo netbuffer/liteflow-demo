@@ -1,4 +1,4 @@
-package cn.netbuffer.liteflow.demo.component.flow;
+package cn.netbuffer.liteflow.demo.component.flow.normal;
 
 import com.yomahub.liteflow.annotation.LiteflowComponent;
 import com.yomahub.liteflow.core.NodeComponent;
