@@ -86,6 +86,12 @@
             <artifactId>liteflow-spring-boot-starter</artifactId>
             <version>${liteflow.version}</version>
         </dependency>
+<!--        https://mvnrepository.com/artifact/com.yomahub/liteflow-script-graaljs-->
+        <dependency>
+            <groupId>com.yomahub</groupId>
+            <artifactId>liteflow-script-graaljs</artifactId>
+            <version>${liteflow.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

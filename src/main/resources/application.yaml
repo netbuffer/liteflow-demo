@@ -10,7 +10,7 @@ liteflow:
   enable: true
   print-banner: false
   parse-on-start: true
-  rule-source: rules/liteflow-yml-type.el.yml,rules/liteflow-xml-type.el.xml
+  rule-source: rules/liteflow-yml-type.el.yml,rules/liteflow-xml-type.el.xml,rules/liteflow-script-component.el.xml
   print-execution-log: true
   monitor:
     enable-log: true
