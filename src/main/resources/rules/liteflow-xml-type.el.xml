@@ -14,4 +14,7 @@
     <chain name="chain-switch">
         SWITCH(paySwitchStep).to(paySuccessStep, payFailStep);
     </chain>
+    <chain name="hello">
+        THEN(hello);
+    </chain>
 </flow>
