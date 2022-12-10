@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @Slf4j
 @RestController
@@ -31,6 +33,15 @@ public class LiteflowController {
         log.debug("exec chain[{}] return code={},getExecuteStepStrWithoutTime={},getMessage={},getRequestId={},slot={}", chainId,
                 liteflowResponse.getCode(), liteflowResponse.getExecuteStepStrWithoutTime(),
                 liteflowResponse.getMessage(), liteflowResponse.getRequestId(), liteflowResponse.getSlot());
+        return liteflowResponse.isSuccess();
+    }
+
+
+    @GetMapping("execute2Future/{chainId}")
+    public boolean execute2Future(@PathVariable("chainId") String chainId) throws ExecutionException, InterruptedException {
+        Future<LiteflowResponse> liteflowResponseFuture = flowExecutor.execute2Future(chainId, null);
+        LiteflowResponse liteflowResponse = liteflowResponseFuture.get();
+        log.debug("exec chain[{}] return isSuccess={}", chainId, liteflowResponse.isSuccess());
         return liteflowResponse.isSuccess();
     }
 

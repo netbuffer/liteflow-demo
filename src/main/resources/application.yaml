@@ -6,6 +6,7 @@ logging:
 
 # https://liteflow.yomahub.com/pages/4594ec/
 liteflow:
+  main-executor-works: 4
   support-multiple-type: true
   enable: true
   print-banner: false
