@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.yomahub.liteflow.core.FlowExecutor;
 import com.yomahub.liteflow.flow.LiteflowResponse;
 import com.yomahub.liteflow.script.ScriptExecutorFactory;
+import com.yomahub.liteflow.slot.DefaultContext;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.context.annotation.Lazy;
@@ -30,6 +31,13 @@ public class LiteflowController {
         param.put("chain", chainId);
         param.put("time", DateTime.now().toString("yyyy-MM-dd HH:mm:ss"));
         LiteflowResponse liteflowResponse = flowExecutor.execute2Resp(chainId, param);
+        DefaultContext defaultContext = liteflowResponse.getContextBean(DefaultContext.class);
+        if (defaultContext != null) {
+            Object result = defaultContext.getData("result");
+            if (result != null) {
+                log.debug("exec chain[{}] success,getData[result]={},result class={}", chainId, result, result.getClass().getName());
+            }
+        }
         log.debug("exec chain[{}] return code={},getExecuteStepStrWithoutTime={},getMessage={},getRequestId={},slot={}", chainId,
                 liteflowResponse.getCode(), liteflowResponse.getExecuteStepStrWithoutTime(),
                 liteflowResponse.getMessage(), liteflowResponse.getRequestId(), liteflowResponse.getSlot());

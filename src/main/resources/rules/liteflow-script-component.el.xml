@@ -12,7 +12,11 @@
             <![CDATA[
                 let c=1;
                 let d=2;
-                defaultContext.setData("result",c+d);
+                let prevStepResult=defaultContext.getData("result");
+                console.log("scriptStep1 result="+prevStepResult);
+                let result=prevStepResult+c+d;
+                console.log("scriptStep2 result="+result);
+                defaultContext.setData("result",prevStepResult+c+d);
             ]]>
         </node>
     </nodes>
