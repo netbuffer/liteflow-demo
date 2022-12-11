@@ -58,4 +58,9 @@ public class LiteflowController {
         ScriptExecutorFactory.loadInstance().getScriptExecutor().load(nodeId, script);
     }
 
+    @GetMapping("reloadRule")
+    public void reloadRule() {
+        flowExecutor.reloadRule();
+    }
+
 }

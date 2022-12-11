@@ -18,3 +18,6 @@ GET http://localhost:11011/liteflow/execute2Resp/chain-script
 
 ### /liteflow/reloadScript
 GET http://localhost:11011/liteflow/reloadScript?nodeId=scriptStep1&script=console.log("hello world");
+
+### /liteflow/reloadRule
+GET http://localhost:11011/liteflow/reloadRule
