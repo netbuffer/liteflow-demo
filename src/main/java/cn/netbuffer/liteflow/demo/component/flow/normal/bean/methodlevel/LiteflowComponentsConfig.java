@@ -17,6 +17,7 @@ public class LiteflowComponentsConfig {
         log.debug("process hello component based method");
         JSONObject data = bindCmp.getCmpData(JSONObject.class);
         log.debug("get hello component config data={} key[name]={}", data, data.getString("name"));
+        log.debug("get hello component tag={}", bindCmp.getTag());
     }
 
 }

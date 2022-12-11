@@ -16,6 +16,6 @@
     </chain>
     <chain name="hello">
         jsonData = '{"name":"jack","age":27,"birth":"1995-10-01"}';
-        THEN(hello.data(jsonData));
+        THEN(hello.data(jsonData).tag("test"));
     </chain>
 </flow>
