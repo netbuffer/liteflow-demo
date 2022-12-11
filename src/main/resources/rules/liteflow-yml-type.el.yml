@@ -2,6 +2,7 @@ flow:
   nodes:
     node:
       - id: step1
+        name: 步骤一
         class: cn.netbuffer.liteflow.demo.component.flow.normal.Step1Component
       - id: step2
         class: cn.netbuffer.liteflow.demo.component.flow.normal.Step2Component

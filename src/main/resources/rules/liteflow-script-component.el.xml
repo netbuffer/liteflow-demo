@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow>
     <nodes>
-        <node id="scriptStep1" name="step 1" type="script" language="javascript">
+        <node id="scriptStep1" name="script step 1" type="script" language="javascript">
             <![CDATA[
                 let a=1;
                 let b=2;
                 defaultContext.setData("result",a*b);
             ]]>
         </node>
-        <node id="scriptStep2" name="step 2" type="script" language="javascript">
+        <node id="scriptStep2" name="script step 2" type="script" language="javascript">
             <![CDATA[
                 let c=1;
                 let d=2;
