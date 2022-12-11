@@ -3,13 +3,17 @@ package cn.netbuffer.liteflow.demo.component.flow.normal.bean.classlevel;
 import com.yomahub.liteflow.annotation.LiteflowCmpDefine;
 import com.yomahub.liteflow.annotation.LiteflowComponent;
 import com.yomahub.liteflow.annotation.LiteflowMethod;
+import com.yomahub.liteflow.annotation.LiteflowRetry;
 import com.yomahub.liteflow.core.NodeComponent;
 import com.yomahub.liteflow.enums.LiteFlowMethodEnum;
 import com.yomahub.liteflow.slot.Slot;
 import lombok.extern.slf4j.Slf4j;
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
 
 @Slf4j
 @LiteflowCmpDefine
+@LiteflowRetry(retry = 3, forExceptions = {ConnectException.class, SocketTimeoutException.class})
 @LiteflowComponent("notifyStep")
 public class NotifyStep {
 
