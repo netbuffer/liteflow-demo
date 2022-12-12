@@ -21,3 +21,6 @@ GET http://localhost:11011/liteflow/reloadScript?nodeId=scriptStep1&script=conso
 
 ### /liteflow/reloadRule
 GET http://localhost:11011/liteflow/reloadRule
+
+### /liteflow/execute2Resp/concurrentRecordFlow
+GET http://localhost:11011/liteflow/execute2Resp/concurrentRecordFlow
