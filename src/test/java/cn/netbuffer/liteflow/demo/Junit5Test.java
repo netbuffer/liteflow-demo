@@ -58,4 +58,11 @@ public class Junit5Test {
         log.debug("nextBoolean={}", RandomUtils.nextBoolean());
     }
 
+    @Test
+    public void testAssert() {
+        Assertions.assertEquals(1, 1, "1!=1");
+        Assertions.assertSame(new Object(), new Object(), "object not same");
+        Assertions.assertTrue(true, "value not true");
+    }
+
 }
