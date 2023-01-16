@@ -1,6 +1,7 @@
 package cn.netbuffer.liteflow.demo;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomUtils;
 import org.junit.jupiter.api.*;
 import java.util.concurrent.TimeUnit;
 
@@ -50,6 +51,11 @@ public class Junit5Test {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @RepeatedTest(name = "testRepeatedTest", value = 3)
+    public void testRepeatedTest() {
+        log.debug("nextBoolean={}", RandomUtils.nextBoolean());
     }
 
 }
