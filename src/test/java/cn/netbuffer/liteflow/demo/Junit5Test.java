@@ -1,9 +1,11 @@
-package cn.netbuffer.liteflow.demo;
-
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 @Slf4j
 @DisplayName("Junit5框架测试")
@@ -63,6 +65,24 @@ public class Junit5Test {
         Assertions.assertEquals(1, 1, "1!=1");
         Assertions.assertSame(new Object(), new Object(), "object not same");
         Assertions.assertTrue(true, "value not true");
+    }
+
+    @ParameterizedTest
+    @DisplayName("参数化测试@ValueSource")
+    @ValueSource(strings = {"a", "b", "c"})
+    public void testValueSource(String key) {
+        log.debug("key={}", key);
+    }
+
+    @ParameterizedTest
+    @DisplayName("参数化测试@MethodSource")
+    @MethodSource(value = {"keyProvider"})
+    public void testMethodSource(String key) {
+        log.debug("key={}", key);
+    }
+
+    static Stream<String> keyProvider() {
+        return Stream.of("a", "b", "c");
     }
 
 }
