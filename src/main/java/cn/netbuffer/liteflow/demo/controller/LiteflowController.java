@@ -8,6 +8,7 @@ import com.yomahub.liteflow.slot.DefaultContext;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,9 +48,17 @@ public class LiteflowController {
 
     @GetMapping("execute2Future/{chainId}")
     public boolean execute2Future(@PathVariable("chainId") String chainId) throws ExecutionException, InterruptedException {
+        StopWatch execStopWatch = new StopWatch("exec " + chainId);
+        execStopWatch.start();
         Future<LiteflowResponse> liteflowResponseFuture = flowExecutor.execute2Future(chainId, null);
+        execStopWatch.stop();
+        log.debug("exec chain[{}] cost {}ms\n{}", chainId, execStopWatch.getTotalTimeMillis(), execStopWatch.prettyPrint());
+        StopWatch getResultStopWatch = new StopWatch("get " + chainId + " result");
+        getResultStopWatch.start();
         LiteflowResponse liteflowResponse = liteflowResponseFuture.get();
-        log.debug("exec chain[{}] return isSuccess={}", chainId, liteflowResponse.isSuccess());
+        getResultStopWatch.stop();
+        log.debug("exec chain[{}] return isSuccess={} get result cost {}ms\n{}", chainId, liteflowResponse.isSuccess(),
+                getResultStopWatch.getTotalTimeMillis(), getResultStopWatch.prettyPrint());
         return liteflowResponse.isSuccess();
     }
 
