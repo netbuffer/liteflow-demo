@@ -2,6 +2,7 @@ package cn.netbuffer.liteflow.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yomahub.liteflow.core.FlowExecutor;
+import com.yomahub.liteflow.enums.ScriptTypeEnum;
 import com.yomahub.liteflow.flow.LiteflowResponse;
 import com.yomahub.liteflow.script.ScriptExecutorFactory;
 import com.yomahub.liteflow.slot.DefaultContext;
@@ -64,7 +65,10 @@ public class LiteflowController {
 
     @GetMapping("reloadScript")
     public void reloadScript(String nodeId, String script) {
-        ScriptExecutorFactory.loadInstance().getScriptExecutor().load(nodeId, script);
+        ScriptExecutorFactory
+                .loadInstance()
+                .getScriptExecutor(ScriptTypeEnum.JS.getEngineName())
+                .load(nodeId, script);
     }
 
     @GetMapping("reloadRule")
