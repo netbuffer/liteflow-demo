@@ -24,3 +24,13 @@ GET http://localhost:11011/liteflow/reloadRule
 
 ### /liteflow/execute2Resp/concurrentRecordFlow
 GET http://localhost:11011/liteflow/execute2Resp/concurrentRecordFlow
+
+### /liteflow/dynamic/createCommonNode
+POST http://localhost:11011/liteflow/dynamic/createCommonNode
+Content-Type: application/json
+
+{
+  "id": "dynamicHello",
+  "name": "dynamic node hello component",
+  "class": "cn.netbuffer.liteflow.demo.component.flow.normal.DynamicHelloNode"
+}

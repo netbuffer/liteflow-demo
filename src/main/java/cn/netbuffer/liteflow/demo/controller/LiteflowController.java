@@ -1,6 +1,7 @@
 package cn.netbuffer.liteflow.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.yomahub.liteflow.builder.LiteFlowNodeBuilder;
 import com.yomahub.liteflow.core.FlowExecutor;
 import com.yomahub.liteflow.enums.ScriptTypeEnum;
 import com.yomahub.liteflow.flow.LiteflowResponse;
@@ -10,11 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.util.StopWatch;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -74,6 +73,16 @@ public class LiteflowController {
     @GetMapping("reloadRule")
     public void reloadRule() {
         flowExecutor.reloadRule();
+    }
+
+    @PostMapping("dynamic/createCommonNode")
+    public void createCommonNode(@RequestBody Map<String, String> body) {
+        LiteFlowNodeBuilder
+                .createCommonNode()
+                .setId(body.get("id"))
+                .setName(body.get("name"))
+                .setClazz(body.get("class"))
+                .build();
     }
 
 }
