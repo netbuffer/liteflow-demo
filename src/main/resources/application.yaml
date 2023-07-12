@@ -6,12 +6,13 @@ logging:
 
 # https://liteflow.yomahub.com/pages/4594ec/
 liteflow:
+  enable: true
   main-executor-works: 4
   when-max-workers: 4
   when-queue-limit: 1024
-  when-max-wait-seconds: 60
+  when-max-wait-time-unit: seconds
+  when-max-wait-time: 60
   support-multiple-type: true
-  enable: true
   print-banner: false
   parse-on-start: true
   rule-source: rules/liteflow-yml-type.el.yml,rules/liteflow-xml-type.el.xml,rules/liteflow-script-component.el.xml
