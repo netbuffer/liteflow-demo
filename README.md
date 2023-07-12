@@ -4,6 +4,7 @@
 * https://github.com/netbuffer/liteflow-demo
 * https://gitee.com/netbuffer/liteflow-demo
 * https://liteflow.yomahub.com
+* https://gitee.com/dromara/liteFlow/issues/I58VY3 框架特性讨论
 
 ## based
 
