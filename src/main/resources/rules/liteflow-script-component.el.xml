@@ -20,8 +20,17 @@
                 defaultContext.setData("result",prevStepResult+c+d);
             ]]>
         </node>
+        <node id="scriptStep3" name="script step 3" type="script" language="groovy">
+            <![CDATA[
+                def num1 = new BigDecimal("123.456")
+                def num2 = new BigDecimal("789.012")
+                def result = num1 + num2
+                println num1 + "+" + num2 + "=" + result
+                defaultContext.setData("result",result);
+            ]]>
+        </node>
     </nodes>
     <chain name="chain-script">
-        THEN(scriptStep1,scriptStep2);
+        THEN(scriptStep1,scriptStep2,scriptStep3);
     </chain>
 </flow>

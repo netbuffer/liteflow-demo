@@ -92,6 +92,11 @@
             <artifactId>liteflow-script-graaljs</artifactId>
             <version>${liteflow.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.yomahub</groupId>
+            <artifactId>liteflow-script-groovy</artifactId>
+            <version>${liteflow.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
