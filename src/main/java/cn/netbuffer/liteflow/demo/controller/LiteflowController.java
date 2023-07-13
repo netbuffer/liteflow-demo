@@ -2,6 +2,7 @@ package cn.netbuffer.liteflow.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yomahub.liteflow.builder.LiteFlowNodeBuilder;
+import com.yomahub.liteflow.builder.el.LiteFlowChainELBuilder;
 import com.yomahub.liteflow.core.FlowExecutor;
 import com.yomahub.liteflow.enums.ScriptTypeEnum;
 import com.yomahub.liteflow.flow.LiteflowResponse;
@@ -83,6 +84,14 @@ public class LiteflowController {
                 .setName(body.get("name"))
                 .setClazz(body.get("class"))
                 .build();
+    }
+
+    @PostMapping("dynamic/createChain")
+    public void createChain(@RequestBody Map<String, String> body) {
+        LiteFlowChainELBuilder
+                .createChain()
+                .setChainId(body.get("chainId"))
+                .setEL(body.get("el")).build();
     }
 
 }
