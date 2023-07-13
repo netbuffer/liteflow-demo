@@ -5,6 +5,7 @@ import com.yomahub.liteflow.builder.LiteFlowNodeBuilder;
 import com.yomahub.liteflow.builder.el.LiteFlowChainELBuilder;
 import com.yomahub.liteflow.core.FlowExecutor;
 import com.yomahub.liteflow.enums.ScriptTypeEnum;
+import com.yomahub.liteflow.flow.FlowBus;
 import com.yomahub.liteflow.flow.LiteflowResponse;
 import com.yomahub.liteflow.script.ScriptExecutorFactory;
 import com.yomahub.liteflow.slot.DefaultContext;
@@ -69,6 +70,11 @@ public class LiteflowController {
                 .loadInstance()
                 .getScriptExecutor(ScriptTypeEnum.JS.getEngineName())
                 .load(nodeId, script);
+    }
+
+    @GetMapping("removeChain")
+    public void removeChain(String chainId) {
+        FlowBus.removeChain(chainId);
     }
 
     @GetMapping("reloadRule")
