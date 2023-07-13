@@ -86,6 +86,17 @@ public class LiteflowController {
                 .build();
     }
 
+    @PostMapping("dynamic/createScriptNode")
+    public void createScriptNode(@RequestBody Map<String, String> body) {
+        LiteFlowNodeBuilder
+                .createScriptNode()
+                .setId(body.get("id"))
+                .setName(body.get("name"))
+                .setLanguage(body.get("language"))
+                .setScript(body.get("script"))
+                .build();
+    }
+
     @PostMapping("dynamic/createChain")
     public void createChain(@RequestBody Map<String, String> body) {
         LiteFlowChainELBuilder

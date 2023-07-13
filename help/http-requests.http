@@ -1,5 +1,5 @@
 ### /liteflow/execute2Resp/hello
-GET http://localhost:11011/liteflow/execute2Resp/dynamicChainHello
+GET http://localhost:11011/liteflow/execute2Resp/hello
 
 ### /liteflow/execute2Future/hello
 GET http://localhost:11011/liteflow/execute2Future/hello
@@ -35,11 +35,37 @@ Content-Type: application/json
   "class": "cn.netbuffer.liteflow.demo.component.flow.normal.DynamicHelloNode"
 }
 
+### /liteflow/dynamic/createScriptNode1
+POST http://localhost:11011/liteflow/dynamic/createScriptNode
+Content-Type: application/json
+
+{
+  "id": "dynamicScript1",
+  "name": "dynamic script node component 1",
+  "language": "groovy",
+  "script": "import cn.netbuffer.liteflow.demo.pojo.Task\ndefaultContext.setData(\"task\",new Task(\"1.0032\",\"2.0087\",\"\"))"
+}
+
+### /liteflow/dynamic/createScriptNode2
+POST http://localhost:11011/liteflow/dynamic/createScriptNode
+Content-Type: application/json
+
+{
+  "id": "dynamicScript2",
+  "name": "dynamic script node component 2",
+  "language": "groovy",
+  "script": "println \"before:\"+defaultContext.getData(\"task\")\ndef task=defaultContext.getData(\"task\")\ntask.setNum3(new BigDecimal(task.getNum1()).add(new BigDecimal(task.getNum2())).add(new BigDecimal(100)).toString())\ndefaultContext.setData(\"task\",task)\nprintln \"after:\"+defaultContext.getData(\"task\")"
+}
+
+
 ### /liteflow/dynamic/createChain
 POST http://localhost:11011/liteflow/dynamic/createChain
 Content-Type: application/json
 
 {
-  "chainId": "dynamicChainHello",
-  "el": "THEN(dynamicHello)"
+  "chainId": "dynamicChainScript",
+  "el": "THEN(dynamicScript1,dynamicScript2)"
 }
+
+### /liteflow/execute2Resp/dynamicChainScript
+GET http://localhost:11011/liteflow/execute2Resp/dynamicChainScript
