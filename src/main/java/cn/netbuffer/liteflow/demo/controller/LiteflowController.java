@@ -14,6 +14,7 @@ import org.joda.time.DateTime;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -105,10 +106,16 @@ public class LiteflowController {
 
     @PostMapping("dynamic/createChain")
     public void createChain(@RequestBody Map<String, String> body) {
+        String el = body.get("el");
+        boolean isValidate = LiteFlowChainELBuilder.validate(el);
+        if (!isValidate) {
+            log.warn("el[{}] format error", el);
+            return;
+        }
         LiteFlowChainELBuilder
                 .createChain()
                 .setChainId(body.get("chainId"))
-                .setEL(body.get("el")).build();
+                .setEL(el).build();
     }
 
 }
