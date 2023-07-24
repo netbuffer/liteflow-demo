@@ -37,7 +37,7 @@ public class Step2Component extends NodeComponent {
     }
 
     @Override
-    public void onError() throws Exception {
+    public void onError(Exception e) throws Exception {
         DefaultContext context = this.getContextBean(DefaultContext.class);
         log.debug("step2 onError callback");
     }
