@@ -45,8 +45,14 @@
                 println "persistence data=${data} result=${result}"
             ]]>
         </node>
+        <node id="invokeSpringBeanMethod" name="invoke spring bean methods in groovy" type="script" language="groovy">
+            <![CDATA[
+                println "bizLogic.logic1 result="+bizLogic.logic1("some json data1");
+                println "bizLogic.logic2 result="+bizLogic.logic2("some json data2");
+            ]]>
+        </node>
     </nodes>
     <chain name="chain-script">
-        WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3),invokeSpringBean);
+        WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3),invokeSpringBean,invokeSpringBeanMethod);
     </chain>
 </flow>
