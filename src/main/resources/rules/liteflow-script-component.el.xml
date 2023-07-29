@@ -34,8 +34,19 @@
                 defaultContext.setData("result",result);
             ]]>
         </node>
+        <node id="invokeSpringBean" name="invoke spring bean methods in groovy" type="script" language="groovy">
+            <![CDATA[
+                import cn.netbuffer.liteflow.demo.pojo.DataDTO;
+
+                def data=new DataDTO();
+                data.setPayload("some data from groovy");
+                data.setType("1");
+                def result=pdc.persistence(data);
+                println "persistence data=${data} result=${result}"
+            ]]>
+        </node>
     </nodes>
     <chain name="chain-script">
-        WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3));
+        WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3),invokeSpringBean);
     </chain>
 </flow>
