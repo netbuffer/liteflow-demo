@@ -2,6 +2,11 @@
 <!DOCTYPE flow PUBLIC  "liteflow" "liteflow.dtd">
 <flow>
     <nodes>
+        <node id="echoMeta" name="echo meta data in groovy" type="script" language="groovy">
+            <![CDATA[
+                println "_meta=${_meta}";
+            ]]>
+        </node>
         <node id="scriptStep1" name="script step 1" type="script" language="js">
             <![CDATA[
                 let a=1;
@@ -31,6 +36,6 @@
         </node>
     </nodes>
     <chain name="chain-script">
-        THEN(scriptStep1,scriptStep2,scriptStep3);
+        WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3));
     </chain>
 </flow>
