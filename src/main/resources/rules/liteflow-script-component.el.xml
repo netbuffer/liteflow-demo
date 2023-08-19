@@ -27,10 +27,14 @@
         </node>
         <node id="scriptStep3" name="script step 3" type="script" language="groovy">
             <![CDATA[
+                println("exec scriptStep3 in groovy")
                 def num1 = new BigDecimal("123.456")
+                println("num1="+num1)
                 def num2 = new BigDecimal("789.012")
+                println("num2="+num2)
                 def result = num1 + num2
                 println num1 + "+" + num2 + "=" + result
+                println("setData result="+result)
                 defaultContext.setData("result",result);
             ]]>
         </node>
