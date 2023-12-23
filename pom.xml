@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.4</version>
+        <version>2.7.14</version>
         <relativePath/>
     </parent>
 
@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <liteflow.version>2.10.7</liteflow.version>
+        <liteflow.version>2.11.3</liteflow.version>
         <fastjson.version>1.2.83</fastjson.version>
     </properties>
 
@@ -86,7 +86,7 @@
             <artifactId>liteflow-spring-boot-starter</artifactId>
             <version>${liteflow.version}</version>
         </dependency>
-<!--        https://mvnrepository.com/artifact/com.yomahub/liteflow-script-graaljs-->
+        <!--        https://mvnrepository.com/artifact/com.yomahub/liteflow-script-graaljs-->
         <dependency>
             <groupId>com.yomahub</groupId>
             <artifactId>liteflow-script-graaljs</artifactId>
@@ -95,6 +95,11 @@
         <dependency>
             <groupId>com.yomahub</groupId>
             <artifactId>liteflow-script-groovy</artifactId>
+            <version>${liteflow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yomahub</groupId>
+            <artifactId>liteflow-script-aviator</artifactId>
             <version>${liteflow.version}</version>
         </dependency>
     </dependencies>

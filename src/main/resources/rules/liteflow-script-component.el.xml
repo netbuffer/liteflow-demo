@@ -55,8 +55,16 @@
                 println "bizLogic.logic2 result="+bizLogic.logic2("some json data2");
             ]]>
         </node>
+        <node id="aviatorStep1" name="invoke aviator script" type="script" language="aviator">
+            <![CDATA[
+                println("hello aviator");
+                let result=0.0003*math.pow(90.64,3)-0.0661*math.pow(90.64,2)+4.7309*math.pow(90.64,1)-40.6332;
+                println("aviator result="+result);
+                setData(defaultContext, "aviatorResult", result);
+            ]]>
+        </node>
     </nodes>
     <chain name="chain-script">
-        WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3),invokeSpringBean,invokeSpringBeanMethod);
+        WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3),invokeSpringBean,invokeSpringBeanMethod,aviatorStep1);
     </chain>
 </flow>

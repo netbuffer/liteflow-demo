@@ -14,7 +14,6 @@ import org.joda.time.DateTime;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -40,6 +39,9 @@ public class LiteflowController {
             Object result = defaultContext.getData("result");
             if (result != null) {
                 log.debug("exec chain[{}] success,getData[result]={},result class={}", chainId, result, result.getClass().getName());
+            }
+            if (defaultContext.hasData("aviatorResult")) {
+                log.debug("aviatorResult={}", defaultContext.getData("aviatorResult").toString());
             }
         }
         log.debug("exec chain[{}] return code={},getExecuteStepStrWithoutTime={},getMessage={},getRequestId={},slot={}", chainId,
