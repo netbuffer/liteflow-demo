@@ -69,3 +69,6 @@ Content-Type: application/json
 
 ### /liteflow/execute2Resp/dynamicChainScript
 GET http://localhost:11011/liteflow/execute2Resp/dynamicChainScript
+
+### /liteflow/execute2Resp/switchChainTest
+GET http://localhost:11011/liteflow/execute2Resp/switchChainTest

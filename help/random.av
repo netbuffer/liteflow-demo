@@ -1,0 +1,10 @@
+let r=nil;
+let n=rand(10);
+p("random number is "+n);
+if(n>5&&n<8){
+  p("greater than 5 and less than 8");
+}elsif(n>=8){
+  p("greater equal than 8");
+}else{
+  p("n===>"+n);
+}

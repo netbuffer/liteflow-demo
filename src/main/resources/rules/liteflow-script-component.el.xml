@@ -63,8 +63,41 @@
                 setData(defaultContext, "aviatorResult", result);
             ]]>
         </node>
+        <node id="switchConditionReturnNode" name="switch condition to return some node" type="switch_script" language="aviator">
+            <![CDATA[
+                let n=rand(10);
+                let returnNode=nil;
+                if(n>5&&n<8){
+                  returnNode="switchNode1";
+                }elsif(n>=8){
+                  returnNode="switchNode2";
+                }else{
+                  returnNode="default";
+                }
+                println("switchConditionReturnNode return "+returnNode);
+                return returnNode;
+            ]]>
+        </node>
+        <node id="switchNode1" name="switch node1" type="script" language="aviator">
+            <![CDATA[
+                println("switchNode1 execute");
+            ]]>
+        </node>
+        <node id="switchNode2" name="switch node2" type="script" language="aviator">
+            <![CDATA[
+                println("switchNode2 execute");
+            ]]>
+        </node>
+        <node id="switchNodeDefault" name="switch node default" type="script" language="aviator">
+            <![CDATA[
+                println("switchNodeDefault execute");
+            ]]>
+        </node>
     </nodes>
     <chain name="chain-script">
         WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3),invokeSpringBean,invokeSpringBeanMethod,aviatorStep1);
+    </chain>
+    <chain name="switchChainTest">
+        SWITCH(switchConditionReturnNode).to(switchNode1, switchNode2).DEFAULT(switchNodeDefault);
     </chain>
 </flow>
