@@ -25,4 +25,7 @@
     <chain name="whileChain">
         WHILE(decisionBooleanComponent).DO(THEN(step1, step2, step3));
     </chain>
+    <chain name="forChain">
+        FOR(frequencyForComponent).DO(THEN(step1, step2, step3));
+    </chain>
 </flow>
