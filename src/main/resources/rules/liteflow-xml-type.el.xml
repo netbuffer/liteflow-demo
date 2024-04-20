@@ -22,4 +22,7 @@
     <chain name="concurrentRecordFlow">
         WHEN(recordToClickhouseComponent,recordToDatabaseComponent,recordToElasticsearchComponent).ignoreError(true);
     </chain>
+    <chain name="whileChain">
+        WHILE(decisionBooleanComponent).DO(THEN(step1, step2, step3));
+    </chain>
 </flow>

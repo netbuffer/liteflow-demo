@@ -72,3 +72,6 @@ GET http://localhost:11011/liteflow/execute2Resp/dynamicChainScript
 
 ### /liteflow/execute2Resp/switchChainTest
 GET http://localhost:11011/liteflow/execute2Resp/switchChainTest
+
+### /liteflow/execute2Resp/whileChain
+GET http://localhost:11011/liteflow/execute2Resp/whileChain
