@@ -14,7 +14,7 @@ liteflow:
   when-max-wait-time: 60
   support-multiple-type: true
   print-banner: false
-  parse-on-start: true
+  parse-mode: ${LF_DEMO_PARSE_MODE:PARSE_ONE_ON_FIRST_EXEC}
   rule-source: rules/liteflow-yml-type.el.yml,rules/liteflow-xml-type.el.xml,rules/liteflow-script-component.el.xml
   print-execution-log: true
   monitor:

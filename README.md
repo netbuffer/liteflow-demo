@@ -6,6 +6,7 @@
 * https://liteflow.yomahub.com
 * https://gitee.com/dromara/liteFlow/issues/I58VY3 框架特性讨论
 * https://liteflow.yomahub.com/pages/6bc8fe/#%E6%9E%84%E9%80%A0node 动态构造规则
+* https://liteflow.cc/pages/88c2f2/ 2.12.0升级指南
 
 ## based
 
