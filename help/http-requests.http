@@ -4,21 +4,6 @@ GET http://localhost:11011/liteflow/execute2Resp/hello
 ### /liteflow/execute2Future/hello
 GET http://localhost:11011/liteflow/execute2Future/hello
 
-### /liteflow/execute2Resp/chain1
-GET http://localhost:11011/liteflow/execute2Resp/chain1
-
-### /liteflow/execute2Resp/chain-xml
-GET http://localhost:11011/liteflow/execute2Resp/chain-xml
-
-### /liteflow/execute2Resp/chain-switch
-GET http://localhost:11011/liteflow/execute2Resp/chain-switch
-
-### /liteflow/execute2Resp/chain-script
-GET http://localhost:11011/liteflow/execute2Resp/chain-script
-
-### /liteflow/reloadScript
-GET http://localhost:11011/liteflow/reloadScript?nodeId=scriptStep1&script=console.log("hello world");
-
 ### /liteflow/reloadRule
 GET http://localhost:11011/liteflow/reloadRule
 
@@ -34,47 +19,3 @@ Content-Type: application/json
   "name": "dynamic node hello component",
   "class": "cn.netbuffer.liteflow.demo.component.flow.normal.DynamicHelloNode"
 }
-
-### /liteflow/dynamic/createScriptNode1
-POST http://localhost:11011/liteflow/dynamic/createScriptNode
-Content-Type: application/json
-
-{
-  "id": "dynamicScript1",
-  "name": "dynamic script node component 1",
-  "language": "groovy",
-  "script": "import cn.netbuffer.liteflow.demo.pojo.Task\ndefaultContext.setData(\"task\",new Task(\"1.0032\",\"2.0087\",\"\"))"
-}
-
-### /liteflow/dynamic/createScriptNode2
-POST http://localhost:11011/liteflow/dynamic/createScriptNode
-Content-Type: application/json
-
-{
-  "id": "dynamicScript2",
-  "name": "dynamic script node component 2",
-  "language": "groovy",
-  "script": "println \"before:\"+defaultContext.getData(\"task\")\ndef task=defaultContext.getData(\"task\")\ntask.setNum3(new BigDecimal(task.getNum1()).add(new BigDecimal(task.getNum2())).add(new BigDecimal(100)).toString())\ndefaultContext.setData(\"task\",task)\nprintln \"after:\"+defaultContext.getData(\"task\")"
-}
-
-
-### /liteflow/dynamic/createChain
-POST http://localhost:11011/liteflow/dynamic/createChain
-Content-Type: application/json
-
-{
-  "chainId": "dynamicChainScript",
-  "el": "THEN(dynamicScript1,dynamicScript2)"
-}
-
-### /liteflow/execute2Resp/dynamicChainScript
-GET http://localhost:11011/liteflow/execute2Resp/dynamicChainScript
-
-### /liteflow/execute2Resp/switchChainTest
-GET http://localhost:11011/liteflow/execute2Resp/switchChainTest
-
-### /liteflow/execute2Resp/whileChain
-GET http://localhost:11011/liteflow/execute2Resp/whileChain
-
-### /liteflow/execute2Resp/forChain
-GET http://localhost:11011/liteflow/execute2Resp/forChain

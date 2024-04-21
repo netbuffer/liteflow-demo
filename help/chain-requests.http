@@ -1,0 +1,35 @@
+### /liteflow/execute2Resp/chain1
+GET http://localhost:11011/liteflow/execute2Resp/chain1
+
+### /liteflow/execute2Resp/chain-xml
+GET http://localhost:11011/liteflow/execute2Resp/chain-xml
+
+### /liteflow/execute2Resp/chain-switch
+GET http://localhost:11011/liteflow/execute2Resp/chain-switch
+
+### /liteflow/execute2Resp/chain-script
+GET http://localhost:11011/liteflow/execute2Resp/chain-script
+
+### /liteflow/execute2Resp/concurrentRecordFlow
+GET http://localhost:11011/liteflow/execute2Resp/concurrentRecordFlow
+
+### /liteflow/dynamic/createChain
+POST http://localhost:11011/liteflow/dynamic/createChain
+Content-Type: application/json
+
+{
+  "chainId": "dynamicChainScript",
+  "el": "THEN(dynamicScript1,dynamicScript2)"
+}
+
+### /liteflow/execute2Resp/dynamicChainScript
+GET http://localhost:11011/liteflow/execute2Resp/dynamicChainScript
+
+### /liteflow/execute2Resp/switchChainTest
+GET http://localhost:11011/liteflow/execute2Resp/switchChainTest
+
+### /liteflow/execute2Resp/whileChain
+GET http://localhost:11011/liteflow/execute2Resp/whileChain
+
+### /liteflow/execute2Resp/forChain
+GET http://localhost:11011/liteflow/execute2Resp/forChain

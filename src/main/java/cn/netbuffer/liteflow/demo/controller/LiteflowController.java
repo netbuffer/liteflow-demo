@@ -8,6 +8,7 @@ import com.yomahub.liteflow.enums.ScriptTypeEnum;
 import com.yomahub.liteflow.flow.FlowBus;
 import com.yomahub.liteflow.flow.LiteflowResponse;
 import com.yomahub.liteflow.script.ScriptExecutorFactory;
+import com.yomahub.liteflow.script.validator.ScriptValidator;
 import com.yomahub.liteflow.slot.DefaultContext;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
@@ -118,6 +119,14 @@ public class LiteflowController {
                 .createChain()
                 .setChainId(body.get("chainId"))
                 .setEL(el).build();
+    }
+
+    @PostMapping("script/validate")
+    public boolean scriptValidate(@RequestBody Map<String, String> body) {
+        ScriptTypeEnum scriptTypeEnum = ScriptTypeEnum.getEnumByDisplayName(body.get("language"));
+        boolean isValid = ScriptValidator.validate(body.get("script"), scriptTypeEnum);
+        log.debug("script[{}] type[{}] validate result is {}", body.get("script"), scriptTypeEnum, isValid);
+        return isValid;
     }
 
 }
