@@ -109,6 +109,12 @@ public class LiteflowController {
                 .build();
     }
 
+    @PostMapping("chain/validate")
+    public boolean chainValidate(@RequestBody Map<String, String> body) {
+        boolean isValidate = LiteFlowChainELBuilder.validate(body.get("el"));
+        return isValidate;
+    }
+
     @PostMapping("dynamic/createChain")
     public void createChain(@RequestBody Map<String, String> body) {
         String el = body.get("el");

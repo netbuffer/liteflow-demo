@@ -22,6 +22,14 @@ Content-Type: application/json
   "el": "THEN(dynamicScript1,dynamicScript2)"
 }
 
+### /liteflow/chain/validate
+POST http://localhost:11011/liteflow/chain/validate
+Content-Type: application/json
+
+{
+  "el": "//this is a test\nTHEN(a, b, h)\n"
+}
+
 ### /liteflow/execute2Resp/dynamicChainScript
 GET http://localhost:11011/liteflow/execute2Resp/dynamicChainScript
 
