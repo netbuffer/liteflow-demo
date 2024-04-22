@@ -7,6 +7,7 @@ import com.yomahub.liteflow.core.FlowExecutor;
 import com.yomahub.liteflow.enums.ScriptTypeEnum;
 import com.yomahub.liteflow.flow.FlowBus;
 import com.yomahub.liteflow.flow.LiteflowResponse;
+import com.yomahub.liteflow.flow.element.Node;
 import com.yomahub.liteflow.script.ScriptExecutorFactory;
 import com.yomahub.liteflow.script.validator.ScriptValidator;
 import com.yomahub.liteflow.slot.DefaultContext;
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -127,6 +129,12 @@ public class LiteflowController {
         boolean isValid = ScriptValidator.validate(body.get("script"), scriptTypeEnum);
         log.debug("script[{}] type[{}] validate result is {}", body.get("script"), scriptTypeEnum, isValid);
         return isValid;
+    }
+
+    @GetMapping("getNodesByChainId")
+    public List<Node> getNodesByChainId(String chainId) {
+        List<Node> nodeList = FlowBus.getNodesByChainId(chainId);
+        return nodeList;
     }
 
 }
