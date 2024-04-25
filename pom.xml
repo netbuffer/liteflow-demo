@@ -24,6 +24,7 @@
         <java.version>1.8</java.version>
         <liteflow.version>2.12.0</liteflow.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <aviator.version>5.4.1</aviator.version>
     </properties>
 
     <dependencies>
@@ -101,6 +102,11 @@
             <groupId>com.yomahub</groupId>
             <artifactId>liteflow-script-aviator</artifactId>
             <version>${liteflow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.aviator</groupId>
+            <artifactId>aviator</artifactId>
+            <version>${aviator.version}</version>
         </dependency>
     </dependencies>
 

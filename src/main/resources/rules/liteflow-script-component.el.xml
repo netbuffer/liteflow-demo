@@ -99,7 +99,14 @@
         <node id="invokeFuncInAviatorScript" name="invoke function test" type="script" language="aviator">
             <![CDATA[
                 p("invoke aviator function execute");
-                preproccess.getMiddleValue(2023.322M,111.M,3208.M);
+                preproccess.getMiddleValue(2023.322M,111.232M,3208.34236M);
+            ]]>
+        </node>
+        <node id="invokeFuncInJsScript" name="invoke function test" type="script" language="js">
+            <![CDATA[
+                console.log("invoke js function execute");
+                let result = preproccess.getMiddleValue(2023.322, 111.232, 3208.34236);
+                console.log("invoke js function result="+result)
             ]]>
         </node>
     </nodes>
@@ -111,5 +118,8 @@
     </chain>
     <chain name="invokeFuncInAviatorChainTest">
         THEN(invokeFuncInAviatorScript);
+    </chain>
+    <chain name="invokeFuncInJsChainTest">
+        THEN(invokeFuncInJsScript);
     </chain>
 </flow>

@@ -47,3 +47,6 @@ GET http://localhost:11011/liteflow/getNodesByChainId?chainId=chain1
 
 ### /liteflow/execute2Resp/invokeFuncInAviatorChainTest
 GET http://localhost:11011/liteflow/execute2Resp/invokeFuncInAviatorChainTest
+
+### /liteflow/execute2Resp/invokeFuncInJsChainTest
+GET http://localhost:11011/liteflow/execute2Resp/invokeFuncInJsChainTest
