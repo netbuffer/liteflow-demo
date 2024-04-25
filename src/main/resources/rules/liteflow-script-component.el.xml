@@ -41,12 +41,15 @@
         <node id="invokeSpringBean" name="invoke spring bean methods in groovy" type="script" language="groovy">
             <![CDATA[
                 import cn.netbuffer.liteflow.demo.pojo.DataDTO;
+                import java.math.BigDecimal;
 
                 def data=new DataDTO();
                 data.setPayload("some data from groovy");
                 data.setType("1");
                 def result=pdc.persistence(data);
                 println "persistence data=${data} result=${result}"
+                def mid=preproccess.getMiddleValue(new BigDecimal(2023.322),new BigDecimal(111.232),new BigDecimal(3208.34236));
+                println "getMiddleValue=${mid}"
             ]]>
         </node>
         <node id="invokeSpringBeanMethod" name="invoke spring bean methods in groovy" type="script" language="groovy">
@@ -93,11 +96,20 @@
                 println("switchNodeDefault execute");
             ]]>
         </node>
+        <node id="invokeFuncInAviatorScript" name="invoke function test" type="script" language="aviator">
+            <![CDATA[
+                p("invoke aviator function execute");
+                preproccess.getMiddleValue(2023.322M,111.M,3208.M);
+            ]]>
+        </node>
     </nodes>
     <chain name="chain-script">
         WHEN(echoMeta,THEN(scriptStep1,scriptStep2,scriptStep3),invokeSpringBean,invokeSpringBeanMethod,aviatorStep1);
     </chain>
     <chain name="switchChainTest">
         SWITCH(switchConditionReturnNode).to(switchNode1, switchNode2).DEFAULT(switchNodeDefault);
+    </chain>
+    <chain name="invokeFuncInAviatorChainTest">
+        THEN(invokeFuncInAviatorScript);
     </chain>
 </flow>
