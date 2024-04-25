@@ -103,7 +103,10 @@
                 let list=seq.array(java.math.BigDecimal,1.0M,3.0M,2.8M);
                 let t=type(list);
                 p("list type="+t);
-                preproccess.getMiddleValue(2023.322M,111.232M,3208.34236M);
+                let mid=getMiddleValue(preproccess,2023.322M,111.232M,3208.34236M);
+                p("mid value return "+mid+",type is "+type(mid));
+                ##wrong call mode
+                ##preproccess.getMiddleValue(2023.322M,111.232M,3208.34236M);
             ]]>
         </node>
         <node id="invokeFuncInJsScript" name="invoke function test" type="script" language="js">
