@@ -19,4 +19,10 @@ public class PersistenceDataComponent {
         return result;
     }
 
+    public String hello(String message) {
+        message += "hello ";
+        log.debug("hello,{}", message);
+        return message;
+    }
+
 }

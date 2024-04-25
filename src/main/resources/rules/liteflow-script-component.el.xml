@@ -99,6 +99,10 @@
         <node id="invokeFuncInAviatorScript" name="invoke function test" type="script" language="aviator">
             <![CDATA[
                 p("invoke aviator function execute");
+                ##pdc.hello("world");
+                let list=seq.array(java.math.BigDecimal,1.0M,3.0M,2.8M);
+                let t=type(list);
+                p("list type="+t);
                 preproccess.getMiddleValue(2023.322M,111.232M,3208.34236M);
             ]]>
         </node>
