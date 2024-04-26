@@ -99,6 +99,9 @@
         <node id="invokeFuncInAviatorScript" name="invoke function test" type="script" language="aviator">
             <![CDATA[
                 p("invoke aviator function execute");
+                p("_meta.currChainId="+_meta.currChainId);
+                p("_meta.requestData="+_meta.requestData);
+                p("_meta.cmpData="+_meta.cmpData);
                 ##pdc.hello("world");
                 let list=seq.array(java.math.BigDecimal,1.0M,3.0M,2.8M);
                 let t=type(list);
