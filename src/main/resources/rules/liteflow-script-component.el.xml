@@ -107,6 +107,8 @@
                 p("mid value return "+mid+",type is "+type(mid));
                 ##wrong call mode
                 ##preproccess.getMiddleValue(2023.322M,111.232M,3208.34236M);
+                let m = seq.map("your_param_code", mid);
+                setData(defaultContext, "out", m);
             ]]>
         </node>
         <node id="invokeFuncInJsScript" name="invoke function test" type="script" language="js">
@@ -124,7 +126,7 @@
         SWITCH(switchConditionReturnNode).to(switchNode1, switchNode2).DEFAULT(switchNodeDefault);
     </chain>
     <chain name="invokeFuncInAviatorChainTest">
-        THEN(invokeFuncInAviatorScript);
+        THEN(invokeFuncInAviatorScript,pvnc);
     </chain>
     <chain name="invokeFuncInJsChainTest">
         THEN(invokeFuncInJsScript);
