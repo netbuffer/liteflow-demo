@@ -129,7 +129,8 @@
         SWITCH(switchConditionReturnNode).to(switchNode1, switchNode2).DEFAULT(switchNodeDefault);
     </chain>
     <chain name="invokeFuncInAviatorChainTest">
-        THEN(invokeFuncInAviatorScript,pvnc);
+        cd = '{"name":"jack","age":27,"birth":"1995-10-01"}';
+        THEN(invokeFuncInAviatorScript.data(cd),pvnc);
     </chain>
     <chain name="invokeFuncInJsChainTest">
         THEN(invokeFuncInJsScript);
