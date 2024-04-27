@@ -50,3 +50,15 @@ GET http://localhost:11011/liteflow/execute2Resp/invokeFuncInAviatorChainTest
 
 ### /liteflow/execute2Resp/invokeFuncInJsChainTest
 GET http://localhost:11011/liteflow/execute2Resp/invokeFuncInJsChainTest
+
+### /liteflow/reloadChain
+POST http://localhost:11011/liteflow/reloadChain
+Content-Type: application/x-www-form-urlencoded
+
+chainId=xx&elContent=xxx
+
+### /liteflow/removeChain
+POST http://localhost:11011/liteflow/removeChain
+Content-Type: application/x-www-form-urlencoded
+
+chainId=xx

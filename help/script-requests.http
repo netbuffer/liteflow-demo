@@ -1,5 +1,8 @@
 ### /liteflow/reloadScript
-GET http://localhost:11011/liteflow/reloadScript?nodeId=scriptStep1&script=console.log("hello world");
+POST http://localhost:11011/liteflow/reloadScript
+Content-Type: multipart/form-data
+
+nodeId=scriptStep1&script=console.log("hello world");
 
 ### /liteflow/script/validate
 POST http://localhost:11011/liteflow/script/validate

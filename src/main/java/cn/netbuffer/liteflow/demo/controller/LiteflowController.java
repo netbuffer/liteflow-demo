@@ -8,7 +8,6 @@ import com.yomahub.liteflow.enums.ScriptTypeEnum;
 import com.yomahub.liteflow.flow.FlowBus;
 import com.yomahub.liteflow.flow.LiteflowResponse;
 import com.yomahub.liteflow.flow.element.Node;
-import com.yomahub.liteflow.script.ScriptExecutorFactory;
 import com.yomahub.liteflow.script.validator.ScriptValidator;
 import com.yomahub.liteflow.slot.DefaultContext;
 import lombok.extern.slf4j.Slf4j;
@@ -70,22 +69,24 @@ public class LiteflowController {
         return liteflowResponse.isSuccess();
     }
 
-    @GetMapping("reloadScript")
-    public void reloadScript(String nodeId, String script) {
-        ScriptExecutorFactory
-                .loadInstance()
-                .getScriptExecutor(ScriptTypeEnum.JS.getEngineName())
-                .load(nodeId, script);
-    }
-
-    @GetMapping("removeChain")
+    @PostMapping("removeChain")
     public void removeChain(String chainId) {
         FlowBus.removeChain(chainId);
     }
 
-    @GetMapping("reloadRule")
+    @PostMapping("reloadScript")
+    public void reloadScript(String nodeId, String script) {
+        FlowBus.reloadScript(nodeId, script);
+    }
+
+    @PostMapping("reloadRule")
     public void reloadRule() {
         flowExecutor.reloadRule();
+    }
+
+    @PostMapping("reloadChain")
+    public void reloadChain(String chainId, String elContent) {
+        FlowBus.reloadChain(chainId, elContent);
     }
 
     @PostMapping("dynamic/createCommonNode")
