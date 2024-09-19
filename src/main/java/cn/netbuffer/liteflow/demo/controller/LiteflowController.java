@@ -32,6 +32,7 @@ public class LiteflowController {
 
     @GetMapping("execute2Resp/{chainId}")
     public boolean execute2Resp(@PathVariable("chainId") String chainId) {
+        log.debug("invoke chainId:{}", chainId);
         JSONObject param = new JSONObject();
         param.put("chain", chainId);
         param.put("time", DateTime.now().toString("yyyy-MM-dd HH:mm:ss"));

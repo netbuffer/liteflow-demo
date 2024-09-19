@@ -135,4 +135,7 @@
     <chain name="invokeFuncInJsChainTest">
         THEN(invokeFuncInJsScript);
     </chain>
+    <chain name="invokeOtherChainTest">
+        THEN(switchChainTest,echoMeta);
+    </chain>
 </flow>

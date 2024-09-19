@@ -62,3 +62,6 @@ POST http://localhost:11011/liteflow/removeChain
 Content-Type: application/x-www-form-urlencoded
 
 chainId=xx
+
+### /liteflow/execute2Resp/invokeOtherChainTest
+GET http://localhost:11011/liteflow/execute2Resp/invokeOtherChainTest

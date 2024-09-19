@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <liteflow.version>2.12.0</liteflow.version>
+        <liteflow.version>2.12.3</liteflow.version>
         <fastjson.version>1.2.83</fastjson.version>
         <aviator.version>5.4.1</aviator.version>
     </properties>
