@@ -12,15 +12,16 @@ public class Step1Component extends NodeComponent {
 
     @Override
     public boolean isAccess() {
-        Boolean isAccess= RandomUtils.nextBoolean();
-        log.debug("step1 isAccess return {}",isAccess);
+        Boolean isAccess = RandomUtils.nextBoolean();
+        log.debug("step1 isAccess return {}", isAccess);
         return isAccess;
     }
 
     @Override
     public void process() throws Exception {
         JSONObject param = this.getRequestData();
-        log.debug("step1 process args={} chain={}", param, this.getChainId());
+        String tag = this.getTag();
+        log.debug("step1 process args={} chain={} tag={}", param, this.getChainId(), tag);
     }
 
 }

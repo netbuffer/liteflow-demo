@@ -8,6 +8,7 @@ import com.yomahub.liteflow.enums.ScriptTypeEnum;
 import com.yomahub.liteflow.flow.FlowBus;
 import com.yomahub.liteflow.flow.LiteflowResponse;
 import com.yomahub.liteflow.flow.element.Node;
+import com.yomahub.liteflow.meta.LiteflowMetaOperator;
 import com.yomahub.liteflow.script.validator.ScriptValidator;
 import com.yomahub.liteflow.slot.DefaultContext;
 import lombok.extern.slf4j.Slf4j;
@@ -141,7 +142,7 @@ public class LiteflowController {
 
     @GetMapping("getNodesByChainId")
     public List<Node> getNodesByChainId(String chainId) {
-        List<Node> nodeList = FlowBus.getNodesByChainId(chainId);
+        List<Node> nodeList = LiteflowMetaOperator.getNodes(chainId);
         return nodeList;
     }
 

@@ -15,7 +15,8 @@ public class Step4Component extends NodeComponent {
         DefaultContext context = this.getContextBean(DefaultContext.class);
         String step2Data = context.getData("step2");
         String step3Data = context.getData("step3");
-        log.debug("get step2 data={} / step3 data={}", step2Data, step3Data);
+        String tag = this.getTag();
+        log.debug("get step2 data={} / step3 data={} tag={}", step2Data, step3Data, tag);
     }
 
 }
