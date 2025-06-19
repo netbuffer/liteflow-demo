@@ -6,7 +6,6 @@ import com.yomahub.liteflow.annotation.LiteflowMethod;
 import com.yomahub.liteflow.annotation.LiteflowRetry;
 import com.yomahub.liteflow.core.NodeComponent;
 import com.yomahub.liteflow.enums.LiteFlowMethodEnum;
-import com.yomahub.liteflow.slot.Slot;
 import lombok.extern.slf4j.Slf4j;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -30,13 +29,13 @@ public class NotifyStep {
     }
 
     @LiteflowMethod(LiteFlowMethodEnum.BEFORE_PROCESS)
-    public void beforeProcess(String nodeId, Slot slot) {
-        log.debug("beforeProcess execute nodeId={} slot={}", nodeId, slot);
+    public void beforeProcess(NodeComponent bindCmp) {
+        log.debug("beforeProcess execute nodeId={} slot={}", bindCmp.getNodeId(), bindCmp.getSlot());
     }
 
     @LiteflowMethod(LiteFlowMethodEnum.AFTER_PROCESS)
-    public void afterProcess(String nodeId, Slot slot) {
-        log.debug("afterProcess execute nodeId={} slot={}", nodeId, slot);
+    public void afterProcess(NodeComponent bindCmp) {
+        log.debug("afterProcess execute nodeId={} slot={}", bindCmp.getNodeId(), bindCmp.getSlot());
     }
 
     @LiteflowMethod(LiteFlowMethodEnum.ON_SUCCESS)

@@ -21,7 +21,8 @@ public class Step1Component extends NodeComponent {
     public void process() throws Exception {
         JSONObject param = this.getRequestData();
         String tag = this.getTag();
-        log.debug("step1 process args={} chain={} tag={}", param, this.getChainId(), tag);
+        Long currChainRuntimeId = this.getCurrChainRuntimeId();
+        log.debug("step1 process args={} chain={} tag={} currChainRuntimeId={}", param, this.getChainId(), tag, currChainRuntimeId);
     }
 
 }
