@@ -25,9 +25,13 @@ public class Step2Component extends NodeComponent {
         context.setData("step2", RandomStringUtils.random(10, true, true));
     }
 
+    /**
+     * 组件内逻辑运行出错是否继续往下执行下一个组件
+     * @return
+     */
     @Override
     public boolean isContinueOnError() {
-        return true;
+        return false;
     }
 
     @Override

@@ -1,6 +1,9 @@
 ### /liteflow/execute2Resp/chain1
 GET http://localhost:11011/liteflow/execute2Resp/chain1
 
+### /liteflow/execute2Resp/simpleStep
+GET http://localhost:11011/liteflow/execute2Resp/simpleStep
+
 ### /liteflow/execute2Resp/chainRepeat
 GET http://localhost:11011/liteflow/execute2Resp/chainRepeat
 

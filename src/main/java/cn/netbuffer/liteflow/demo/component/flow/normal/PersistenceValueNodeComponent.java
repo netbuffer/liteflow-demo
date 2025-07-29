@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Map;
 
 @Slf4j
-@LiteflowComponent(name = "持久化规则引擎计算值到数据库层", value = "pvnc")
+@LiteflowComponent(name = "持久化规则引擎计算值到数据库层", id = "pvnc")
 public class PersistenceValueNodeComponent extends NodeComponent {
 
     @Override

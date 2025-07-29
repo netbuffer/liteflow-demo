@@ -11,6 +11,8 @@ flow:
       - id: step4
         class: cn.netbuffer.liteflow.demo.component.flow.normal.Step4Component
   chain:
+    - name: simpleStep
+      value: "THEN(step1,step2,step3,step4)"
     - name: chain1
       value: "THEN(step1,WHEN(step2,step3),step4,notifyStep)"
     - name: chainRepeat
