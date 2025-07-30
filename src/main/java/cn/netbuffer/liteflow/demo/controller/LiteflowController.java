@@ -39,6 +39,7 @@ public class LiteflowController {
         param.put("time", DateTime.now().toString("yyyy-MM-dd HH:mm:ss"));
         LiteflowResponse liteflowResponse = flowExecutor.execute2Resp(chainId, param);
         DefaultContext defaultContext = liteflowResponse.getContextBean(DefaultContext.class);
+        boolean isSuccess = liteflowResponse.isSuccess();
         if (defaultContext != null) {
             Object result = defaultContext.getData("result");
             if (result != null) {
@@ -48,12 +49,11 @@ public class LiteflowController {
                 log.debug("aviatorResult={}", defaultContext.getData("aviatorResult").toString());
             }
         }
-        log.debug("exec chain[{}] return code={},getExecuteStepStrWithoutTime={},getMessage={},getRequestId={},slot={}", chainId,
+        log.debug("exec chain[{}] isSuccess={}! return code={},getExecuteStepStrWithoutTime={},getMessage={},getRequestId={},slot={}", chainId, isSuccess,
                 liteflowResponse.getCode(), liteflowResponse.getExecuteStepStrWithoutTime(),
                 liteflowResponse.getMessage(), liteflowResponse.getRequestId(), liteflowResponse.getSlot());
-        return liteflowResponse.isSuccess();
+        return isSuccess;
     }
-
 
     @GetMapping("execute2Future/{chainId}")
     public boolean execute2Future(@PathVariable("chainId") String chainId) throws ExecutionException, InterruptedException {

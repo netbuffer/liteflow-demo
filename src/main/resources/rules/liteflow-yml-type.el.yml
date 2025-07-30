@@ -17,3 +17,5 @@ flow:
       value: "THEN(step1,WHEN(step2,step3),step4,notifyStep)"
     - name: chainRepeat
       value: "THEN(step1.tag('c1'),step1.tag('c2'),step4.tag('c3'),step4.tag('c4'))"
+    - name: longTimeTask
+      value: "THEN(step1,sleepComponent,step2).maxWaitSeconds(1)"
