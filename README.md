@@ -11,5 +11,6 @@
 ## based
 
 * ![java 1.8](https://img.shields.io/static/v1?label=java&message=1.8&color=blue)
-* ![spring-boot 2.7.4](https://img.shields.io/static/v1?label=spring-boot&message=2.7.4&color=blue)
-* ![liteflow 2.10.5](https://img.shields.io/static/v1?label=liteflow&message=2.10.5&color=blue)
+* ![spring-boot 2.7.4](https://img.shields.io/static/v1?label=spring-boot&message=2.7.15&color=blue)
+* ![liteflow 2.15.1](https://img.shields.io/static/v1?label=liteflow&message=2.15.1&color=FF583B)
+* ![aviator 5.4.3](https://img.shields.io/static/v1?label=aviator&message=5.4.3&color=679FF4)
